@@ -1,0 +1,45 @@
+.transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em 2em;
+  background-color: #fff;
+  border: 3px solid #c5d0da;
+  padding: 0 2em;
+}
+
+.transaction button {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+.transaction-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.5em 0;
+}
+
+.transaction-infos-name {
+  font-weight: 600;
+  color: #3c4a56;
+}
+
+.transaction-infos-balance {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.transaction-infos-info {
+  color: #2a3a47;
+  font-weight: 400;
+}
+
+.transaction-btn {
+  background-color: #6458f5;
+  outline: transparent;
+  border: transparent;
+  padding: 1em;
+  color: white;
+  border-radius: 10px;
+  font-size: 1em;
+}
