@@ -1,27 +1,28 @@
-import Header from '../components/Header';
-import Feature from '../components/Feature';
-import iconChat from '../assets/icon-chat.png';
-import iconMoney from '../assets/icon-money.png';
-import iconSecurity from '../assets/icon-security.png';
-import Footer from '../components/Footer';
+import Header from '../../components/Header';
+import Feature from '../../components/Feature';
+import iconChat from '../../assets/icon-chat.png';
+import iconMoney from '../../assets/icon-money.png';
+import iconSecurity from '../../assets/icon-security.png';
+import Footer from '../../components/Footer';
+import styles from './Home.module.css';
 
 export default function Home() {
   return (
     <div className="App">
       <Header />
       <main>
-        <div className="hero">
-          <section className="hero-content">
+        <div className={styles.hero}>
+          <section className={styles['hero-content']}>
             <h2 className="sr-only">Promoted Content</h2>
-            <p className="subtitle">No fees.</p>
-            <p className="subtitle">No minimum deposit.</p>
-            <p className="subtitle">High interest rates.</p>
-            <p className="text">
+            <p className={styles.subtitle}>No fees.</p>
+            <p className={styles.subtitle}>No minimum deposit.</p>
+            <p className={styles.subtitle}>High interest rates.</p>
+            <p className={styles.text}>
               Open a savings account with Argent Bank today!
             </p>
           </section>
         </div>
-        <section className="features">
+        <section className={styles.features}>
           <h2 className="sr-only">Features</h2>
           <Feature
             title="You are our #1 priority"
