@@ -4,7 +4,6 @@ import styles from './Header.module.css';
 import img from '../../assets/argentBankLogo.png';
 
 export default function Header({ auth }) {
-  console.log(auth);
   return (
     <nav className={styles['main-nav']}>
       <a className={styles['main-nav-logo']} href="./index.html">

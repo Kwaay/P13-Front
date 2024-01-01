@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Transaction from '../../components/Transaction';
+import Account from '../../components/Account';
 import store from '../../store';
-import transactionsData from '../../data/transactions';
+import accountsData from '../../data/accounts';
 import styles from './UserEdit.module.css';
 import { addUser } from '../../store/UserSlice';
 
@@ -13,8 +13,8 @@ export default function UserEdit() {
   const [user, setUser] = useState(store.getState().user);
   const dispatch = useDispatch();
 
-  const listTransactions = transactionsData.map((transaction) => (
-    <Transaction {...transaction} key={transaction.name} />
+  const listAccounts = accountsData.map((account) => (
+    <Account {...account} key={account.name} />
   ));
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function UserEdit() {
             </div>
           </form>
         </div>
-        <div className={styles['transactions']}>{listTransactions}</div>
+        <div className={styles['accounts']}>{listAccounts}</div>
       </main>
       <Footer />
     </div>

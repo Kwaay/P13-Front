@@ -4,7 +4,7 @@ import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
 import User from '../pages/User';
 import UserEdit from '../pages/UserEdit';
-import Transactions from '../pages/Transactions';
+import Transaction from '../pages/Transaction';
 
 const router = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
     element: <UserEdit />,
   },
   {
-    path: '/transactions',
-    element: <Transactions />,
+    path: '/account/:accountId',
+    element: <Transaction />,
   },
 ]);
 
