@@ -1,0 +1,48 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.account {
+  font-family: Avenir, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid #ccc;
+}
+
+.account-name {
+  font-weight: 600;
+  color: #3c4a56;
+}
+
+.account-balance {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.account-info {
+  color: #2a3a47;
+  font-weight: 400;
+}
+
+.transaction {
+  padding: 7em 5em 2em;
+  background-color: #dfe6ed;
+}
+
+.transaction-infos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-around;
+}
+
+.transaction-infos span {
+  font-size: 14px;
+  padding-bottom: 0.4em;
+}
+
+.transaction-list {
+  background-color: #fff;
+}
