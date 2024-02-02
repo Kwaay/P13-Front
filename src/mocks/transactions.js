@@ -7,18 +7,18 @@ const transactions = [
     balance: '2082.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 1,
   },
   {
     id: 2,
     date: 'June 20th, 2020',
     description: 'Golden Sun Bakery',
-    amount: 10.0,
-    balance: 2087.79,
+    amount: '10.0',
+    balance: '2087.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 1,
   },
   {
@@ -29,7 +29,7 @@ const transactions = [
     balance: '2097.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 1,
   },
   {
@@ -40,7 +40,7 @@ const transactions = [
     balance: '2117.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 1,
   },
   {
@@ -51,7 +51,7 @@ const transactions = [
     balance: '2147.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 1,
   },
   {
@@ -62,7 +62,7 @@ const transactions = [
     balance: '2187.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 1,
   },
   {
@@ -73,7 +73,7 @@ const transactions = [
     balance: '2082.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 2,
   },
   {
@@ -84,7 +84,7 @@ const transactions = [
     balance: '2087.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 2,
   },
   {
@@ -95,7 +95,7 @@ const transactions = [
     balance: '2097.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 2,
   },
   {
@@ -106,7 +106,7 @@ const transactions = [
     balance: '2117.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 2,
   },
   {
@@ -117,7 +117,7 @@ const transactions = [
     balance: '2147.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 2,
   },
   {
@@ -128,7 +128,7 @@ const transactions = [
     balance: '2187.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 2,
   },
   {
@@ -139,7 +139,7 @@ const transactions = [
     balance: '2082.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 3,
   },
   {
@@ -150,7 +150,7 @@ const transactions = [
     balance: '2087.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 3,
   },
   {
@@ -161,7 +161,7 @@ const transactions = [
     balance: '2097.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 3,
   },
   {
@@ -172,7 +172,7 @@ const transactions = [
     balance: '2117.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 3,
   },
   {
@@ -183,7 +183,7 @@ const transactions = [
     balance: '2147.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 3,
   },
   {
@@ -194,7 +194,7 @@ const transactions = [
     balance: '2187.79',
     type: 'Electronic',
     category: 'Food',
-    notes: '',
+    note: '',
     accountId: 3,
   },
 ];

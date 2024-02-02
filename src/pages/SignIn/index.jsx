@@ -2,10 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from '../../store/AuthSlice';
-
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import { loginUser } from '../../store/AuthSlice';
 
 import styles from './SignIn.module.css';
 
@@ -15,30 +12,14 @@ export default function SignIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault();
-    return fetch('http://localhost:3001/api/v1/user/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw new Error('Unable to login');
-      })
-      .then(({ body }) => {
-        dispatch(login(body.token));
-        navigate('/user/edit');
-      });
+    await dispatch(loginUser({ email, password }));
+    navigate('/user');
   }
 
   return (
-    <div className={`App ${styles.flex}`}>
-      <Header />
+    <>
       <main className={`${styles.main} ${styles.bgdark}`}>
         <section className={styles['sign-in-content']}>
           <i className="fa fa-user-circle sign-in-icon"></i>
@@ -74,7 +55,6 @@ export default function SignIn() {
           </form>
         </section>
       </main>
-      <Footer />
-    </div>
+    </>
   );
 }

@@ -1,22 +1,26 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './Transaction.module.css';
 
+import { updateTransaction } from '../../store/TransactionSlice';
+
 export default function Transaction({
+  id,
   date,
   description,
   amount,
   balance,
   type,
   category,
-  notes,
+  note,
 }) {
+  const dispatch = useDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
-  const [notesData, setNotes] = useState(notes);
-  const [categoryData, setCategory] = useState(category);
+  const [editNote, setEditNote] = useState(false);
   const [editCategory, setEditCategory] = useState(false);
-  const [editNotes, setEditNotes] = useState(false);
   function toggleOpen() {
     setIsOpen(!isOpen);
   }
@@ -24,12 +28,12 @@ export default function Transaction({
     setEditCategory(!editCategory);
   }
   function toggleNotes() {
-    setEditNotes(!editNotes);
+    setEditNote(!editNote);
   }
   const CATEGORIES = ['Food', 'Beverages'];
 
   return (
-    <div className={styles['transaction-data']} data-isOpen={isOpen}>
+    <div className={styles['transaction-data']} data-isopen={isOpen}>
       {!isOpen ? (
         <i className="fa-solid fa-angle-down" onClick={toggleOpen}></i>
       ) : (
@@ -44,12 +48,16 @@ export default function Transaction({
           <p>Transaction Type: {type}</p>
           {!editCategory ? (
             <p>
-              Category: {categoryData}
+              Category: {category}
               <i className="fa-solid fa-pencil" onClick={toggleCategory}></i>
             </p>
           ) : (
             <span>
-              <select onChange={(e) => setCategory(e.target.value)}>
+              <select
+                onChange={(e) =>
+                  dispatch(updateTransaction({ id, category: e.target.value }))
+                }
+              >
                 {CATEGORIES.map((cat) => (
                   <option value={cat} key={cat}>
                     {cat}
@@ -59,9 +67,9 @@ export default function Transaction({
               <i className="fa-solid fa-pencil" onClick={toggleCategory}></i>
             </span>
           )}
-          {!editNotes ? (
+          {!editNote ? (
             <p>
-              Notes: {notesData}
+              Notes: {note}
               <i className="fa-solid fa-pencil" onClick={toggleNotes}></i>
             </p>
           ) : (
@@ -69,8 +77,10 @@ export default function Transaction({
               Notes :
               <input
                 type="text"
-                onChange={(e) => setNotes(e.target.value)}
-                value={notesData}
+                onChange={(e) =>
+                  dispatch(updateTransaction({ id, note: e.target.value }))
+                }
+                value={note}
               ></input>
               <i className="fa-solid fa-pencil" onClick={toggleNotes}></i>
             </span>
@@ -81,20 +91,22 @@ export default function Transaction({
   );
 }
 Transaction.propTypes = {
+  id: PropTypes.number.isRequired,
   date: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
-  balance: PropTypes.number.isRequired,
+  amount: PropTypes.string.isRequired,
+  balance: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  notes: PropTypes.string,
+  note: PropTypes.string,
 };
 Transaction.defaultProps = {
+  id: 0,
   date: null,
   description: null,
-  amount: 0,
-  balance: 0,
+  amount: '0',
+  balance: '0',
   type: null,
   category: null,
-  notes: null,
+  note: null,
 };

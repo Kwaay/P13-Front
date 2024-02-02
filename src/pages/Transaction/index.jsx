@@ -1,45 +1,50 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-
-import accounts from '../../data/accounts';
-import transactions from '../../data/transactions';
 import styles from './Transaction.module.css';
 import TransactionComponent from '../../components/Transaction';
 
+import { getAllTransactions } from '../../store/TransactionSlice';
+
 export default function Transaction() {
+  const bankAccountState = useSelector((state) => state.bankAccounts);
+  const transactionState = useSelector((state) => state.transactions);
+  const dispatch = useDispatch();
   const { accountId } = useParams();
   const [account, setAccount] = useState(null);
   useEffect(() => {
-    setAccount(accounts.find(({ id }) => id === Number(accountId)));
+    setAccount(
+      bankAccountState.bankAccounts?.find(({ id }) => id === Number(accountId)),
+    );
   }, [accountId]);
+  useEffect(() => {
+    if (transactionState?.transactions === null)
+      dispatch(getAllTransactions(accountId));
+  }, [transactionState]);
   if (account === null) return <div />;
-  const listTransactions = transactions
-    .filter((tr) => tr.accountId === Number(accountId))
-    .map((transaction) => (
-      <TransactionComponent {...transaction} key={transaction.id} />
-    ));
+  const listTransactions = transactionState?.transactions.map((transaction) => (
+    <TransactionComponent {...transaction} key={transaction.id} />
+  ));
 
   return (
-    <div className="App">
-      <Header />
-      <section className={styles.account}>
-        <p className={styles['account-name']}>{account.name}</p>
-        <span className={styles['account-balance']}>${account.balance}</span>
-        <p className={styles['account-info']}>{account.info}</p>
-      </section>
-      <section className={styles.transaction}>
-        <div className={styles['transaction-infos']}>
-          <span>DATE</span>
-          <span>DESCRIPTION</span>
-          <span>AMOUNT</span>
-          <span>BALANCE</span>
-        </div>
-        <div className={styles['transaction-list']}>{listTransactions}</div>
-      </section>
-      <Footer />
-    </div>
+    <>
+      <main>
+        <section className={styles.account}>
+          <p className={styles['account-name']}>{account.name}</p>
+          <span className={styles['account-balance']}>${account.balance}</span>
+          <p className={styles['account-info']}>{account.info}</p>
+        </section>
+        <section className={styles.transaction}>
+          <div className={styles['transaction-infos']}>
+            <span>DATE</span>
+            <span>DESCRIPTION</span>
+            <span>AMOUNT</span>
+            <span>BALANCE</span>
+          </div>
+          <div className={styles['transaction-list']}>{listTransactions}</div>
+        </section>
+      </main>
+    </>
   );
 }

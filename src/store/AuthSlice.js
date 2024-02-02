@@ -1,5 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import AuthService from '../services/AuthService';
+
+export const loginUser = createAsyncThunk('auth/loginUser', async (data) => {
+  const { body } = await AuthService.login(data);
+  return body.token;
+});
 
 const authSlice = createSlice({
   name: 'auth',
@@ -9,13 +15,19 @@ const authSlice = createSlice({
     error: null,
   },
   reducers: {
-    login: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
-      state.auth = action.payload;
+    logout: (state, _action) => {
+      state.loading = false;
+      state.auth = null;
+      state.error = null;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+      state.auth = action.payload;
+    });
   },
 });
 
-export const { login } = authSlice.actions;
+export const { logout } = authSlice.actions;
 
 export default authSlice.reducer;
