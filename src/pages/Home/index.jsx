@@ -1,15 +1,12 @@
-import Header from '../../components/Header';
 import Feature from '../../components/Feature';
 import iconChat from '../../assets/icon-chat.png';
 import iconMoney from '../../assets/icon-money.png';
 import iconSecurity from '../../assets/icon-security.png';
-import Footer from '../../components/Footer';
 import styles from './Home.module.css';
 
 export default function Home() {
   return (
-    <div className="App">
-      <Header />
+    <>
       <main>
         <div className={styles.hero}>
           <section className={styles['hero-content']}>
@@ -46,7 +43,6 @@ export default function Home() {
           ></Feature>
         </section>
       </main>
-      <Footer />
-    </div>
+    </>
   );
 }
