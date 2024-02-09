@@ -9,12 +9,13 @@ ul {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: 2px solid #ccc;
+  background-color: #12002b;
+  color: white;
 }
 
 .account-name {
   font-weight: 600;
-  color: #3c4a56;
+  color: white;
 }
 
 .account-balance {
@@ -23,7 +24,7 @@ ul {
 }
 
 .account-info {
-  color: #2a3a47;
+  color: white;
   font-weight: 400;
 }
 
@@ -36,6 +37,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-around;
+  color: white;
 }
 
 .transaction-infos span {
